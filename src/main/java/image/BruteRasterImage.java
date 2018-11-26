@@ -22,6 +22,8 @@ public class BruteRasterImage implements Image{
         Matrices.requiresNonNull(colors);
         Matrices.requiresNonZeroDimensions(colors);
         this.colors = colors;
+        this.width = Matrices.getRowCount(colors);
+        this.height = Matrices.getColumnCount(colors);
     }
 
     @Override
