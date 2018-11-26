@@ -7,9 +7,9 @@ import util.Matrices;
 
 public class BruteRasterImage implements Image{
 
-    Color[][] colors;
-    int width;
-    int height;
+    private Color[][] colors;
+    private int width;
+    private int height;
 
     public BruteRasterImage(Color color, int width, int height) {
         this.width = width;
@@ -26,9 +26,10 @@ public class BruteRasterImage implements Image{
     public BruteRasterImage(Color[][] colors){
         Matrices.requiresNonNull(colors);
         Matrices.requiresNonZeroDimensions(colors);
-        this.colors = colors;
         this.width = Matrices.getRowCount(colors);
         this.height = Matrices.getColumnCount(colors);
+        createRepresentation();
+        this.colors.setPixelsColor(colors);
     }
 
 
