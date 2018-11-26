@@ -8,14 +8,19 @@ import util.Matrices;
 public class BruteRasterImage implements Image{
 
     Color[][] colors;
-    Color color;
     int width;
     int height;
 
     public BruteRasterImage(Color color, int width, int height) {
-        this.color = color;
         this.width = width;
         this.height = height;
+        createRepresentation();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; i < width; j++) {
+                this.colors[i][j] = color;
+            }
+        }
+
     }
 
     public BruteRasterImage(Color[][] colors){
@@ -24,6 +29,11 @@ public class BruteRasterImage implements Image{
         this.colors = colors;
         this.width = Matrices.getRowCount(colors);
         this.height = Matrices.getColumnCount(colors);
+    }
+
+
+    public void createRepresentation() {
+        this.colors = new Color[this.height][this.width];
     }
 
     @Override
@@ -40,4 +50,6 @@ public class BruteRasterImage implements Image{
     public int getHeight() {
         return this.height;
     }
+
+
 }
