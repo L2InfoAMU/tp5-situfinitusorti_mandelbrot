@@ -7,6 +7,7 @@ import util.Matrices;
 
 public class BruteRasterImage implements Image{
 
+    public enum RasterImageType {BRUTE};
     private Color[][] colors;
     private int width;
     private int height;
@@ -31,7 +32,6 @@ public class BruteRasterImage implements Image{
         createRepresentation();
         this.setPixelsColor(colors);
     }
-
 
     public void createRepresentation() {
         this.colors = new Color[getHeight()][getWidth()];
