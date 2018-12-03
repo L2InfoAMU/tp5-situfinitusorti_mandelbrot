@@ -3,6 +3,7 @@ package image;
 import javafx.scene.paint.Color;
 import util.Matrices;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaletteRasterImage implements Image {
@@ -26,6 +27,7 @@ public class PaletteRasterImage implements Image {
         Matrices.requiresRectangularMatrix(pixels);
         setWidth(Matrices.getRowCount(pixels));
         setHeight(Matrices.getColumnCount(pixels));
+        createRepresentation();
         setPixelsColor(pixels);
 
     }
@@ -62,6 +64,7 @@ public class PaletteRasterImage implements Image {
 
     public void createRepresentation(){
         this.indexesOfColor = new int[width][height];
+        this.palette = new ArrayList<Color>();
     }
 
     @Override
