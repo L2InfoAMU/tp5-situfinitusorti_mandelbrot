@@ -30,7 +30,8 @@ public class Display implements Initializable {
         //imageFactory = new RasterFlagFactory(900, 600, Color.BLUE, Color.WHITE, Color.RED, RasterImageType.BRUTE);
         //imageFactory = new RasterFlagFactory(900, 600, Color.BLUE, Color.WHITE, Color.RED, RasterImageType.PALETTE);
         //imageFactory = new RasterUniformImageFactory(300, 500, Color.MEDIUMPURPLE, RasterImageType.SPARSE);
-        imageFactory = new RasterFlagFactory(900, 600, Color.AQUAMARINE, Color.FLORALWHITE, Color.DODGERBLUE, RasterImageType.SPARSE);
+        //imageFactory = new RasterFlagFactory(900, 600, Color.AQUAMARINE, Color.FLORALWHITE, Color.DODGERBLUE, RasterImageType.SPARSE);
+        imageFactory = new LogoLISFactory();
 
         this.image = imageFactory.makeImage();
         render();
