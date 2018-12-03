@@ -9,9 +9,9 @@ public class RasterFlagFactory implements ImageFactory {
     private Color leftColor;
     private Color middleColor;
     private Color rightColor;
-    private BruteRasterImage.RasterImageType rasterImageType;
+    private RasterImageType rasterImageType;
 
-    public RasterFlagFactory(int width, int height, Color leftColor, Color middleColor, Color rightColor, BruteRasterImage.RasterImageType rasterImageType) {
+    public RasterFlagFactory(int width, int height, Color leftColor, Color middleColor, Color rightColor, RasterImageType rasterImageType) {
         this.width = width;
         this.height = height;
         this.leftColor = leftColor;
@@ -32,6 +32,9 @@ public class RasterFlagFactory implements ImageFactory {
         switch (rasterImageType){
             case BRUTE:
                 return new BruteRasterImage(colors);
+
+            case PALETTE:
+                return new PaletteRasterImage(colors);
             default:
                 throw new NotSupportedException(rasterImageType + " is not supported");
         }

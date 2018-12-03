@@ -24,16 +24,12 @@ public class Display implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        // TODO : rajouter la création d'une fabrique d'image pour initialiser imageFactory
 
-        imageFactory = new RasterUniformImageFactory(200,
-                200, Color.RED, BruteRasterImage.RasterImageType.BRUTE);
-
-
-        imageFactory = new RasterFlagFactory(600, 900,
-                Color.BLUE, Color.WHITE, Color.RED, BruteRasterImage.RasterImageType.BRUTE);
-
+        //imageFactory = new RasterUniformImageFactory(200, 200, Color.RED, RasterImageType.BRUTE);
+        //imageFactory = new RasterFlagFactory(900, 600, Color.BLUE, Color.WHITE, Color.RED, RasterImageType.BRUTE);
+        imageFactory = new RasterFlagFactory(900, 600, Color.BLUE, Color.WHITE, Color.RED, RasterImageType.PALETTE);
         this.image = imageFactory.makeImage();
-
         render();
     }
 
@@ -43,7 +39,6 @@ public class Display implements Initializable {
 
         canvas.setWidth(pixelWidth);
         canvas.setHeight(pixelHeight);
-
 
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         PixelWriter pixelWriter = graphicsContext.getPixelWriter();
