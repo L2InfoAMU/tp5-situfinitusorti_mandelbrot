@@ -3,26 +3,19 @@ package image;
 import javafx.scene.paint.Color;
 import util.Matrices;
 
-public class BruteRasterImage implements Image{
+public class BruteRasterImage extends RasterImage{
 
     Color[][] colors;
-    int width; // x
-    int height; // y
+
 
     public BruteRasterImage(Color color, int width, int height){
-        setWidth(width);
-        setHeight(height);
+        super(width,height);
         createRepresentation();
         setPixelsColor(color);
     }
 
     public BruteRasterImage(Color[][] colors){
-
-        Matrices.requiresNonNull(colors);
-        Matrices.requiresNonZeroDimensions(colors);
-        Matrices.requiresRectangularMatrix(colors);
-        setWidth(Matrices.getRowCount(colors));
-        setHeight(Matrices.getColumnCount(colors));
+        super(colors,Matrices.getRowCount(colors),Matrices.getColumnCount(colors));
         this.colors = colors;
     }
 
@@ -59,20 +52,4 @@ public class BruteRasterImage implements Image{
         return this.colors[x][y];
     }
 
-    @Override
-    public int getWidth() {
-        return this.width;
-    }
-
-    @Override
-    public int getHeight() {
-        return this.height;
-    }
-    protected void setWidth(int width){
-        this.width = width;
-    }
-
-    protected  void setHeight(int height){
-        this.height = height;
-    }
 }
