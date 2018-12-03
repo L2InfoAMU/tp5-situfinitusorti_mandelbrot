@@ -9,7 +9,6 @@ public class BruteRasterImage implements Image{
     int width; // x
     int height; // y
 
-
     public BruteRasterImage(Color color, int width, int height){
         setWidth(width);
         setHeight(height);
