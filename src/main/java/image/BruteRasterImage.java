@@ -10,13 +10,12 @@ public class BruteRasterImage extends RasterImage{
 
     public BruteRasterImage(Color color, int width, int height){
         super(width,height);
-        createRepresentation();
         setPixelsColor(color);
     }
 
     public BruteRasterImage(Color[][] colors){
         super(colors,Matrices.getRowCount(colors),Matrices.getColumnCount(colors));
-        this.colors = colors;
+        setPixelsColor(colors);
     }
 
     private void setPixelsColor(Color color){

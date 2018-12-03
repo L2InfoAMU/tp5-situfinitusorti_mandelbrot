@@ -12,13 +12,17 @@ public abstract class RasterImage implements Image{
     public RasterImage(int width, int height){
         setWidth(width);
         setHeight(height);
+        createRepresentation();
     }
     public RasterImage(Color[][] matrice,int width,int height){
         this(width,height);
         Matrices.requiresNonNull(matrice);
         Matrices.requiresNonZeroDimensions(matrice);
         Matrices.requiresRectangularMatrix(matrice);
+        createRepresentation();
     }
+
+    public abstract void createRepresentation();
 
     @Override
     public int getWidth() {
