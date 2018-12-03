@@ -7,43 +7,21 @@ public class BruteRasterImage extends RasterImage{
 
     Color[][] colors;
 
-
     public BruteRasterImage(Color color, int width, int height){
-        super(width,height);
-        setPixelsColor(color);
+        super(color,width,height);
     }
 
     public BruteRasterImage(Color[][] colors){
-        super(colors,Matrices.getRowCount(colors),Matrices.getColumnCount(colors));
-        setPixelsColor(colors);
+        super(colors,Matrices.getRowCount(colors),Matrices.getColumnCount(colors));;
     }
-
-    private void setPixelsColor(Color color){
-        for(int i = 0; i<getWidth(); i++){
-            for(int j = 0;j<getHeight();j++){
-                setPixelColor(color,i,j);
-            }
-        }
-    }
-
-    public void setPixelColor(Color color, int x, int y){
-        this.colors[x][y] = color;
-    }
-
 
     public void createRepresentation(){
         this.colors = new Color[width][height];
     }
 
-    private void setPixelsColor(Color[][] pixels){
-        int minimumWidth = Math.min(getWidth(),pixels.length);
-        int minimumHeight = Math.min(getHeight(),pixels[0].length);
 
-        for(int i = 0; i<minimumWidth; i++){
-            for(int j = 0; j<minimumHeight; j++ ){
-                setPixelColor(pixels[i][j],i,j);
-            }
-        }
+    public void setPixelColor(Color color, int x, int y){
+        this.colors[x][y] = color;
     }
 
     @Override
